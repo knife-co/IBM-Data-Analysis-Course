@@ -1,0 +1,9 @@
+1. Retrieving Information from a table but the condition lays in another table (note that they have a column in common)
+	select * 
+	from EMPLOYEES
+	WHERE JOB_ID IN (SELECT JOB_IDENT FROM JOBS
+                WHERE JOB_TITLE = 'Jr. Designer')
+
+2. Accessing Multiple Table With Implicit Join
+	select JOB_TITLE, MIN_SALARY,MAX_SALARY,JOB_IDENT from JOBS 
+	where JOB_IDENT IN (select JOB_ID from EMPLOYEES where YEAR(B_DATE)>1976 );
